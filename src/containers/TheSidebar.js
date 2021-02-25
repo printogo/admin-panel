@@ -10,32 +10,35 @@ import {
   CSidebarMinimizer,
   CSidebarNavDropdown,
   CSidebarNavItem,
+  CImg,
 } from '@coreui/react'
 
-import CIcon from '@coreui/icons-react'
 
 // sidebar nav config
 import navigation from './_nav'
+import { types } from 'src/types/types'
 
 const TheSidebar = () => {
   const dispatch = useDispatch()
-  const show = useSelector(state => state.sidebarShow)
+  const show = useSelector(state => state.ui.sidebarShow)
 
   return (
     <CSidebar
       show={show}
-      onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
+      onShowChange={(val) => dispatch({type: types.setSidebar, payload: val })}
     >
       <CSidebarBrand className="d-md-down-none" to="/">
-        <CIcon
+      <CImg
+          src={"logo.png"}
           className="c-sidebar-brand-full"
-          name="logo-negative"
-          height={35}
+          alt="admin@bootstrapmaster.com"
+          height={50}
         />
-        <CIcon
+        <CImg
+          src={"logo.png"}
           className="c-sidebar-brand-minimized"
-          name="sygnet"
-          height={35}
+          alt="admin@bootstrapmaster.com"
+          height={15}
         />
       </CSidebarBrand>
       <CSidebarNav>

@@ -1,0 +1,610 @@
+[
+  {
+    "printingType": "estandar",
+    "paperType": "Bond",
+    "paperSize": "Carta",
+    "color": "color",
+    "price": 13.5,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Bond",
+    "paperSize": "Carta",
+    "color": "blancoYNegro",
+    "price": 0.99,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Bond",
+    "paperSize": "Oficio",
+    "color": "color",
+    "price": 16.0,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Bond",
+    "paperSize": "Oficio",
+    "color": "blancoYNegro",
+    "price": 1.4,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Bond",
+    "paperSize": "DobleCarta",
+    "color": "color",
+    "price": 19.0,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Bond",
+    "paperSize": "DobleCarta",
+    "color": "blancoYNegro",
+    "price": 3.6,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Albanene",
+    "paperSize": "Carta",
+    "color": "color",
+    "price": 17.5,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Albanene",
+    "paperSize": "Carta",
+    "color": "blancoYNegro",
+    "price": 4.99,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Albanene",
+    "paperSize": "Oficio",
+    "color": "color",
+    "price": 20.0,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Albanene",
+    "paperSize": "Oficio",
+    "color": "blancoYNegro",
+    "price": 5.3,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Albanene",
+    "paperSize": "DobleCarta",
+    "color": "color",
+    "price": 23.0,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Albanene",
+    "paperSize": "DobleCarta",
+    "color": "blancoYNegro",
+    "price": 7.6,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Couche",
+    "paperSize": "Carta",
+    "color": "color",
+    "price": 17.5,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Couche",
+    "paperSize": "Carta",
+    "color": "blancoYNegro",
+    "price": 4.99,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Couche",
+    "paperSize": "Oficio",
+    "color": "color",
+    "price": 20.0,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Couche",
+    "paperSize": "Oficio",
+    "color": "blancoYNegro",
+    "price": 5.3,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Couche",
+    "paperSize": "DobleCarta",
+    "color": "color",
+    "price": 23.0,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Couche",
+    "paperSize": "DobleCarta",
+    "color": "blancoYNegro",
+    "price": 7.6,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Opalina",
+    "paperSize": "Carta",
+    "color": "color",
+    "price": 17.0,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Opalina",
+    "paperSize": "Carta",
+    "color": "blancoYNegro",
+    "price": 4.49,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Opalina",
+    "paperSize": "Oficio",
+    "color": "color",
+    "price": 19.5,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Opalina",
+    "paperSize": "Oficio",
+    "color": "blancoYNegro",
+    "price": 4.8,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Opalina",
+    "paperSize": "DobleCarta",
+    "color": "color",
+    "price": 22.5,
+    "active": true
+  },
+  {
+    "printingType": "estandar",
+    "paperType": "Opalina",
+    "paperSize": "DobleCarta",
+    "color": "blancoYNegro",
+    "price": 7.1,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "Tabloide",
+    "color": "color",
+    "price": 19.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "Tabloide",
+    "color": "blancoYNegro",
+    "price": 4.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "DobleCarta",
+    "color": "color",
+    "price": 19.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "DobleCarta",
+    "color": "blancoYNegro",
+    "price": 4.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "A3",
+    "color": "color",
+    "price": 19.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "A3",
+    "color": "blancoYNegro",
+    "price": 3.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "60x45",
+    "color": "color",
+    "price": 49.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "60x45",
+    "color": "blancoYNegro",
+    "price": 28.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "A1",
+    "color": "color",
+    "price": 87.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "A1",
+    "color": "blancoYNegro",
+    "price": 36.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "90x60",
+    "color": "color",
+    "price": 87.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "90x60",
+    "color": "blancoYNegro",
+    "price": 36.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "Personalizado",
+    "color": "color",
+    "price": 1.45,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Bond",
+    "paperSize": "Personalizado",
+    "color": "blancoYNegro",
+    "price": 0.6,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "Tabloide",
+    "color": "color",
+    "price": 23.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "Tabloide",
+    "color": "blancoYNegro",
+    "price": 6.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "DobleCarta",
+    "color": "color",
+    "price": 23.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "DobleCarta",
+    "color": "blancoYNegro",
+    "price": 6.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "A3",
+    "color": "color",
+    "price": 23.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "A3",
+    "color": "blancoYNegro",
+    "price": 6.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "60x45",
+    "color": "color",
+    "price": 69.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "60x45",
+    "color": "blancoYNegro",
+    "price": 44.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "A1",
+    "color": "color",
+    "price": 98.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "A1",
+    "color": "blancoYNegro",
+    "price": 53.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "90x60",
+    "color": "color",
+    "price": 98.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "90x60",
+    "color": "blancoYNegro",
+    "price": 53.0,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "Personalizado",
+    "color": "color",
+    "price": 1.63,
+    "active": true
+  },
+  {
+    "printingType": "planos",
+    "paperType": "Albanene",
+    "paperSize": "Personalizado",
+    "color": "blancoYNegro",
+    "price": 0.88,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Bond",
+    "paperSize": "Tabloide",
+    "color": "color",
+    "price": 48.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Bond",
+    "paperSize": "A3",
+    "color": "color",
+    "price": 48.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Bond",
+    "paperSize": "60x45",
+    "color": "color",
+    "price": 122.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Bond",
+    "paperSize": "A1",
+    "color": "color",
+    "price": 159.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Bond",
+    "paperSize": "90x60",
+    "color": "color",
+    "price": 159.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Bond",
+    "paperSize": "Personalizado",
+    "color": "color",
+    "price": 2.72,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Photoglossy",
+    "paperSize": "Tabloide",
+    "color": "color",
+    "price": 86.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Photoglossy",
+    "paperSize": "A3",
+    "color": "color",
+    "price": 86.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Photoglossy",
+    "paperSize": "60x45",
+    "color": "color",
+    "price": 169.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Photoglossy",
+    "paperSize": "A1",
+    "color": "color",
+    "price": 219.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Photoglossy",
+    "paperSize": "90x60",
+    "color": "color",
+    "price": 219.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Photoglossy",
+    "paperSize": "Personalizado",
+    "color": "color",
+    "price": 3.76,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Albanene",
+    "paperSize": "Tabloide",
+    "color": "color",
+    "price": 81.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Albanene",
+    "paperSize": "A3",
+    "color": "color",
+    "price": 81.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Albanene",
+    "paperSize": "60x45",
+    "color": "color",
+    "price": 159.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Albanene",
+    "paperSize": "A1",
+    "color": "color",
+    "price": 209.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Albanene",
+    "paperSize": "90x60",
+    "color": "color",
+    "price": 209.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Albanene",
+    "paperSize": "Personalizado",
+    "color": "color",
+    "price": 3.5,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Aperlado",
+    "paperSize": "Tabloide",
+    "color": "color",
+    "price": 86.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Aperlado",
+    "paperSize": "A3",
+    "color": "color",
+    "price": 86.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Aperlado",
+    "paperSize": "60x45",
+    "color": "color",
+    "price": 169.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Aperlado",
+    "paperSize": "A1",
+    "color": "color",
+    "price": 219.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Aperlado",
+    "paperSize": "90x60",
+    "color": "color",
+    "price": 219.0,
+    "active": true
+  },
+  {
+    "printingType": "ploteo",
+    "paperType": "Aperlado",
+    "paperSize": "Personalizado",
+    "color": "color",
+    "price": 3.76,
+    "active": true
+  }
+]

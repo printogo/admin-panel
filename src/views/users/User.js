@@ -1,41 +1,121 @@
-import React from 'react'
-import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+import {
+  CBadge,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CRow,
+} from "@coreui/react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import currency from "currency.js";
+import moment from "moment";
+import { getUserById } from "../../api/users";
 
-import usersData from './UsersData'
+const Printing = () => {
+  const [user, setUser] = useState({});
+  const { id } = useParams();
 
-const User = ({match}) => {
-  const user = usersData.find( user => user.id.toString() === match.params.id)
-  const userDetails = user ? Object.entries(user) : 
-    [['id', (<span><CIcon className="text-muted" name="cui-icon-ban" /> Not found</span>)]]
+  const {
+    firstName,
+    lastName,
+    phone,
+    email,
+    role,
+    createdAt,
+    credit,
+    picture,
+  } = user;
+
+  useEffect(() => {
+    if (id) {
+      getUserById(id).then(setUser);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  const getBadge = (type) => {
+    switch (type) {
+      case "ADMIN":
+        return "danger";
+      case "USER":
+        return "success";
+      case "ploteo":
+        return "warning";
+      default:
+        return "primary";
+    }
+  };
 
   return (
-    <CRow>
-      <CCol lg={6}>
-        <CCard>
-          <CCardHeader>
-            User id: {match.params.id}
-          </CCardHeader>
-          <CCardBody>
-              <table className="table table-striped table-hover">
-                <tbody>
-                  {
-                    userDetails.map(([key, value], index) => {
-                      return (
-                        <tr key={index.toString()}>
-                          <td>{`${key}:`}</td>
-                          <td><strong>{value}</strong></td>
-                        </tr>
-                      )
-                    })
-                  }
-                </tbody>
-              </table>
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
-  )
-}
+    <>
+      {user.id && (
+        <CRow>
+          <CCol xs={12} md={8}>
+            <CCard>
+              <CCardHeader>
+                <CRow>
+                  <CCol>
+                    {firstName} {lastName}
+                  </CCol>
+                  <CCol>
+                    <CBadge color={getBadge(role)}>{role}</CBadge>
+                  </CCol>
+                </CRow>
+              </CCardHeader>
+              <CCardBody>
+                <CRow>
+                  <CCol>
+                    <img
+                      className="rounded"
+                      style={{
+                        width: "100%",
+                      }}
+                      src={
+                        picture ||
+                        "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                      }
+                      alt="profile"
+                    />
+                  </CCol>
+                  <CCol>
+                    <p>
+                      <span className="font-weight-bold">id:</span> {user.id}
+                    </p>
+                    <p>
+                      <span className="font-weight-bold">Nombre:</span>{" "}
+                      {firstName}
+                    </p>
+                    <p>
+                      <span className="font-weight-bold">Apellido:</span>{" "}
+                      {lastName}
+                    </p>
+                    <p>
+                      <span className="font-weight-bold">Email:</span> {email}
+                    </p>
+                    <p>
+                      <span className="font-weight-bold">Celular:</span> {phone}
+                    </p>
+                    <p>
+                      <span className="font-weight-bold">Fecha Registro:</span>{" "}
+                      {moment(createdAt).format("DD/MM/YYYY h:m a")}
+                    </p>
+                    <p>
+                      <span className="font-weight-bold">Saldo:</span>{" "}
+                      {currency(credit).format()}
+                    </p>
+                  </CCol>
+                </CRow>
+              </CCardBody>
+            </CCard>
+          </CCol>
+        </CRow>
+      )}
+    </>
+  );
+};
 
-export default User
+export default Printing;

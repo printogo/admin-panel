@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   CBadge,
   CCard,
@@ -8,9 +7,9 @@ import {
   CDataTable,
   CRow
 } from '@coreui/react'
-import { DocsLink } from 'src/reusable'
 
-import usersData from '../../users/UsersData'
+import { DocsLink } from 'src/reusable'
+import React from 'react'
 
 const getBadge = status => {
   switch (status) {
@@ -35,7 +34,7 @@ const Tables = () => {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={[]}
               fields={fields}
               itemsPerPage={5}
               pagination
@@ -62,7 +61,7 @@ const Tables = () => {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={[]}
               fields={fields}
               striped
               itemsPerPage={5}
@@ -93,7 +92,7 @@ const Tables = () => {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={[]}
               fields={fields}
               size="sm"
               itemsPerPage={5}
@@ -121,7 +120,7 @@ const Tables = () => {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={[]}
               fields={fields}
               bordered
               itemsPerPage={5}
@@ -152,7 +151,7 @@ const Tables = () => {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={[]}
               fields={fields}
               hover
               striped
@@ -183,7 +182,7 @@ const Tables = () => {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={[]}
               fields={fields}
               dark
               hover
