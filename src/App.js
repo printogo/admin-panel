@@ -3,6 +3,7 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import Auth from "./reusable/Auth";
 import "./scss/style.scss";
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 
 const loading = (
@@ -57,6 +58,7 @@ class App extends Component {
             />
           </Switch>
         </React.Suspense>
+        <ToastContainer />
       </HashRouter>
     );
   }

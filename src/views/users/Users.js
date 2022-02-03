@@ -18,6 +18,7 @@ import currency from "currency.js";
 import { getUsers } from "../../api/users";
 import moment from "moment";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const [options, setOptions] = useState({
@@ -140,6 +141,11 @@ const Users = () => {
                 itemsPerPage={options.quantity}
                 pagination
                 scopedSlots={{
+                  id: ({ id }) => (
+                    <td>
+                      <Link to={`/user/${id}`}>{id}</Link>
+                    </td>
+                  ),
                   imagen: ({ picture }) => (
                     <td>
                       {

@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import currency from "currency.js";
 import { getPrinting } from "src/api/printings";
+import getRanges from "src/helpers/get-ranges";
 
 const Printing = () => {
   const [printing, setPrinting] = useState({});
@@ -34,6 +35,7 @@ const Printing = () => {
     crimp,
     doubleSided,
     price,
+    additionalInfo
   } = printing;
 
   useEffect(() => {
@@ -111,13 +113,13 @@ const Printing = () => {
                 {blackPages.length > 0 && (
                   <p>
                     <span className="font-weight-bold">Hojas b/n:</span>{" "}
-                    {blackPages}
+                    {getRanges(blackPages).map((r) => r + " ")}
                   </p>
                 )}
                 {colorPages.length > 0 && (
                   <p>
                     <span className="font-weight-bold">Hojas color:</span>
-                    {colorPages}
+                    {getRanges(colorPages).map((r) => r + " ")}
                   </p>
                 )}
                 <p>
@@ -140,6 +142,9 @@ const Printing = () => {
                   <CBadge color={folder ? "success" : "danger"}>
                     {folder ? "Sí" : "No"}
                   </CBadge>
+                </p>
+                <p>
+                  <span className="font-weight-bold">Información Adicional:</span> {additionalInfo}
                 </p>
                 <p>
                   <span className="font-weight-bold">Precio:</span>{" "}

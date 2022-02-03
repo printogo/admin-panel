@@ -1,5 +1,16 @@
 import { axiosClient } from "src/helpers/axiosClient";
 
+export const getStationery = async (id) => {
+  const token = localStorage.getItem("token");
+  const res = await axiosClient.get(`/stationery/admin/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
+};
+
+
 export const getAllStationerys = async () => {
   const token = localStorage.getItem("token");
   const res = await axiosClient.get("stationery/admin/all", {
@@ -26,11 +37,40 @@ export const updateStationery = async (id, active) => {
   );
 };
 
+export const updateStationeryCosts = async (id, costs) => {
+  const token = localStorage.getItem("token");
+  return await axiosClient.patch(
+    `stationery/admin/costs/${id}`,
+    {
+      costs
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 
 export const addStationery = async (body) => {
   const token = localStorage.getItem("token");
+  return await axiosClient.post(
+    "stationery",
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+
+export const editStationery = async (id, body) => {
+  const token = localStorage.getItem("token");
   return await axiosClient.put(
-    "stationery/admin",
+    `admin/stationery/${id}`,
     body,
     {
       headers: {

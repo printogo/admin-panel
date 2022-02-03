@@ -1,11 +1,18 @@
 import AddStationery from "./views/stationerys/AddStationery";
 import Address from "./views/address/Address";
 import Orders from "./views/orders/Orders";
+import Prices from "./views/prices/Prices";
+import OtherPrices from "./views/prices/OtherPrices";
+
 import Printing from "./views/printings/Printing";
 import Printings from "./views/printings/Printings";
 import React from "react";
 import StationeryAddress from "./views/address-stationery/StationeryAdress";
 import Stationerys from "./views/stationerys/Stationerys";
+import EditStationery from "./views/stationerys/EditStationery";
+import Maintenances from "./views/maintenance/Maintenance";
+import Schedules from "./views/schedule/Schedules";
+import Coupons from "./views/coupons/Coupons";
 
 const Toaster = React.lazy(() =>
   import("./views/notifications/toaster/Toaster")
@@ -126,7 +133,11 @@ const routes = [
   { path: "/printing/:id", name: "Impresion", component: Printing },
   { path: "/printings/:orderId", name: "Impresiones", component: Printings },
   { path: "/address/:id", name: "Dirección", component: Address },
-  { path: "/stationery-address/:id", name: "Dirección Papelería", component: StationeryAddress },
+  {
+    path: "/stationery-address/:id",
+    name: "Dirección Papelería",
+    component: StationeryAddress,
+  },
   { path: "/widgets", name: "Widgets", component: Widgets },
   { path: "/users/:role", exact: true, name: "Users", component: Users },
   { path: "/user/:id", exact: true, name: "Usuario", component: User },
@@ -141,6 +152,42 @@ const routes = [
     exact: true,
     name: "Agregar Papelería",
     component: AddStationery,
+  },
+  {
+    path: "/stationerys/edit/:id",
+    exact: true,
+    name: "Editar Papelería",
+    component: EditStationery,
+  },
+  {
+    path: "/prices",
+    exact: true,
+    name: "Precios",
+    component: Prices,
+  },
+  {
+    path: "/other-prices",
+    exact: true,
+    name: "Otros Precios",
+    component: OtherPrices,
+  },
+  {
+    path: "/maintenances",
+    exact: true,
+    name: "Mantenimientos",
+    component: Maintenances,
+  },
+  {
+    path: "/schedules",
+    exact: true,
+    name: "Horarios",
+    component: Schedules,
+  },
+  {
+    path: "/coupons",
+    exact: true,
+    name: "Cupones",
+    component: Coupons,
   },
 ];
 

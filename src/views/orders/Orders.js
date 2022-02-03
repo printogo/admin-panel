@@ -10,13 +10,16 @@ import {
   CPagination,
   CRow,
 } from "@coreui/react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 import SelectStatus from "./SelectStatus";
 import currency from "currency.js";
-import { getOrders } from "src/api/orders";
+import { changeStationeryOrder, getOrders } from "src/api/orders";
 import moment from "moment";
+import SelectModal from "./SelectModal";
+import { getAllStationerys } from "src/api/stationerys";
+import { toast } from "react-toastify";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -35,7 +38,35 @@ const Orders = () => {
     value: "",
   });
 
+  const [modal, setModal] = useState(false);
+
   const { status } = useParams();
+
+  const [stationerys, setStationerys] = useState([]);
+
+  const [selectedStationery, setSelectedStationery] = useState("");
+  const [selectedOrder, setSelectedOrder] = useState("");
+
+  const onClick = async () => {
+    try {
+      const newOrder = await changeStationeryOrder(
+        selectedOrder,
+        selectedStationery
+      );
+      console.log(newOrder);
+      const updatedOrders = orders.map((order) => {
+        if (newOrder.id === order.id) {
+          return { ...order, stationery: newOrder.stationery };
+        }
+        return order;
+      });
+      setOrders(updatedOrders);
+      toast("Orden actualizada con éxito", { type: "success" });
+    } catch (error) {
+      console.log("error", error);
+      toast("Ha ocurrido un error al actualizar la orden", { type: "error" });
+    }
+  };
 
   useEffect(() => {
     getOrders(
@@ -60,7 +91,7 @@ const Orders = () => {
   }, [options, status, search]);
 
   useEffect(() => {
-    console.log(orders);
+    getAllStationerys().then(setStationerys);
   }, [orders]);
 
   const fields = [
@@ -169,7 +200,11 @@ const Orders = () => {
                   ),
                   status: (order) => (
                     <td>
-                      <SelectStatus order={order} />
+                      <SelectStatus
+                        setOrder={setSelectedOrder}
+                        setModal={setModal}
+                        order={order}
+                      />
                     </td>
                   ),
                 }}
@@ -185,6 +220,16 @@ const Orders = () => {
           </CCard>
         </CCol>
       </CRow>
+      <SelectModal
+        options={stationerys}
+        modal={modal}
+        setModal={setModal}
+        onClick={onClick}
+        title="Cambiar papelería de la orden"
+        description="Selecciona una papelería"
+        value={selectedStationery}
+        setValue={setSelectedStationery}
+      />
     </>
   );
 };

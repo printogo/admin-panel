@@ -1,10 +1,11 @@
+import CIcon from "@coreui/icons-react";
 import { CButton, CCol, CRow, CSelect } from "@coreui/react";
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { updateStatus } from "../../api/orders";
 
-const SelectStatus = ({ order }) => {
-  const [value, setValue] = useState(order.status || '');
+const SelectStatus = ({ order, setModal, setOrder }) => {
+  const [value, setValue] = useState(order.status || "");
 
   const onClick = async () => {
     updateStatus(order.id, value).then(() =>
@@ -16,10 +17,9 @@ const SelectStatus = ({ order }) => {
 
   return (
     <CRow>
-      <ToastContainer />
       <CCol>
         <CSelect onChange={(e) => setValue(e.target.value)}>
-        <option value="">Selecciona un status</option>
+          <option value="">Selecciona un status</option>
           <option value="UNPAID">Pendiente de Pago</option>
           <option value="SEARCHING_STATIONERY">Buscando Papelería</option>
           <option value="PRINTING">Imprimiendo</option>
@@ -30,7 +30,15 @@ const SelectStatus = ({ order }) => {
       </CCol>
       <CCol>
         <CButton onClick={onClick} color="primary">
-          Actualizar
+          <CIcon name="cil-save"></CIcon>
+        </CButton>
+      </CCol>
+      <CCol>
+        <CButton onClick={() => {
+            setOrder(order.id);
+            setModal(true)}
+          } className="btn btn-secondary">
+          <CIcon name="cil-pencil"></CIcon>
         </CButton>
       </CCol>
     </CRow>

@@ -19,12 +19,15 @@ const Stationerys = () => {
   const history = useHistory();
   const [stationerys, setStationerys] = useState([]);
 
-
   useEffect(() => {
-    getAllStationerys().then(setStationerys).catch(setStationerys);
+    getAllStationerys()
+      .then((data) => {
+        setStationerys(data);
+      })
+      .catch((error) => console.error(error.response.data.message));
   }, []);
 
-  const fields = ["id", "nombre", "direccion", "activo"];
+  const fields = ["id", "nombre", "direccion", "acciones"];
 
   const handleClick = async (id, status) => {
     try {
@@ -50,7 +53,7 @@ const Stationerys = () => {
               <CButton
                 className=""
                 color="primary"
-                onClick={() => history.push('/stationerys/add')}
+                onClick={() => history.push("/stationerys/add")}
               >
                 <CIcon name="cil-plus"></CIcon>
                 Agregar Nueva
@@ -71,7 +74,7 @@ const Stationerys = () => {
                       </Link>
                     </td>
                   ),
-                  activo: ({ id, active }) => (
+                  acciones: ({ id, active }) => (
                     <td>
                       {active ? (
                         <button
@@ -88,6 +91,12 @@ const Stationerys = () => {
                           Activar
                         </button>
                       )}
+                      <button
+                        onClick={() => history.push(`/stationerys/edit/${id}`)}
+                        className="btn btn-secondary"
+                      >
+                        <CIcon name="cil-pencil"></CIcon>
+                      </button>
                     </td>
                   ),
                 }}

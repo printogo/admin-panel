@@ -98,6 +98,42 @@ export default [
     to: "/stationerys",
     icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon" />,
   },
+  {
+    _tag: "CSidebarNavDropdown",
+    name: "Precios",
+    to: "/prices",
+    icon: <CIcon name="cil-dollar" customClasses="c-sidebar-nav-icon" />,
+    _children: [
+      {
+        _tag: "CSidebarNavItem",
+        name: "Impresiones",
+        to: "/prices",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Otros Precios",
+        to: "/other-prices",
+      }
+    ],
+  },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Mantenimientos",
+    to: "/maintenances",
+    icon: <CIcon name="cil-settings" customClasses="c-sidebar-nav-icon" />,
+  },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Horarios",
+    to: "/schedules",
+    icon: <CIcon name="cil-code" customClasses="c-sidebar-nav-icon" />,
+  },
+  {
+    _tag: "CSidebarNavItem",
+    name: "Cupones",
+    to: "/coupons",
+    icon: <CIcon name="cil-tags" customClasses="c-sidebar-nav-icon" />,
+  },
   // {
   //   _tag: "CSidebarNavTitle",
   //   _children: ["Theme"],

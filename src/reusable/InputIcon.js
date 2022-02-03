@@ -16,6 +16,7 @@ const InputIcon = ({
   value,
   className = "p-2 my-2",
   onKeyUp = null,
+  disabled= false,
 }) => {
   return (
     <CInputGroup className={className}>
@@ -30,6 +31,7 @@ const InputIcon = ({
         onChange={onChange}
         value={value}
         onKeyUp={onKeyUp}
+        disabled={disabled}
       />
     </CInputGroup>
   );
