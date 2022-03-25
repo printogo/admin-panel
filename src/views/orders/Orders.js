@@ -101,6 +101,7 @@ const Orders = () => {
     "telefono",
     "usuario",
     "costoDeEnvio",
+    "costoPapeleria",
     "costoTotal",
     "fechaPedido",
     "impresiones",
@@ -161,6 +162,9 @@ const Orders = () => {
                   ),
                   costoDeEnvio: (order) => (
                     <td>{currency(order.shppingCost).format()}</td>
+                  ),
+                  costoPapeleria: (order) => (
+                    <td>{currency(order.stationeryCost).format()}</td>
                   ),
                   costoTotal: (order) => (
                     <td>{currency(order.totalCost).format()}</td>

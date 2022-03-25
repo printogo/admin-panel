@@ -44,6 +44,11 @@ export default [
       },
       {
         _tag: "CSidebarNavItem",
+        name: "Repartidor en camnino",
+        to: "/orders/requesting_deliveryman",
+      },
+      {
+        _tag: "CSidebarNavItem",
         name: "Enviando",
         to: "/orders/sending",
       },

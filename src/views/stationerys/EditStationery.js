@@ -36,6 +36,8 @@ const EditStationery = () => {
     addZipcode,
     removeZipcode,
     editStationeryCosts,
+    editStationeryPaymentInfo,
+    editStationeryAccessData
   } = useEditStationery();
 
   return (
@@ -89,17 +91,25 @@ const EditStationery = () => {
           <InputIcon
             icon={faLock}
             type="password"
-            placeholder="Contraseña"
+            placeholder="Nueva Contraseña"
             value={user.password}
             onChange={(e) => setUser("password", e)}
           />
           <InputIcon
             icon={faLock}
             type="password"
-            placeholder="Confirmar Contraseña"
+            placeholder="Confirmar Nueva Contraseña"
             value={user.confirmPassword}
             onChange={(e) => setUser("confirmPassword", e)}
           />
+          <CButton
+            onClick={editStationeryAccessData}
+            className="w-100 mb-2"
+            size="lg"
+            color="primary"
+          >
+            Guardar
+          </CButton>
           <ZipCodes
             addZipCode={addZipcode}
             reachableZipcodes={reachableZipcodes}
@@ -177,6 +187,14 @@ const EditStationery = () => {
             value={paymentData.clabe}
             onChange={(e) => setPaymentData("clabe", e)}
           />
+          <CButton
+            onClick={editStationeryPaymentInfo}
+            className="w-100"
+            size="lg"
+            color="primary"
+          >
+            Actualizar Datos Pago
+          </CButton>
         </CCol>
         <CCol lg={8} md={10} sm={12}>
           <h4>Costos</h4>

@@ -85,7 +85,7 @@ const Printings = () => {
                 <p>
                   <span className="font-weight-bold">Tamaño:</span> {paperSize}
                 </p>
-                {paperSize === "personalizado" && (
+                {paperSize === "Personalizado" && (
                   <>
                     <p>
                       <span className="font-weight-bold">Ancho:</span>{" "}

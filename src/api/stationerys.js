@@ -52,6 +52,32 @@ export const updateStationeryCosts = async (id, costs) => {
   );
 };
 
+export const updatePaymentData = async (id, body) => {
+  const token = localStorage.getItem("token");
+  return await axiosClient.patch(
+    `stationery/admin/payment-data/${id}`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+export const updateStationeryAccessData = async (id, body) => {
+  const token = localStorage.getItem("token");
+  return await axiosClient.patch(
+    `stationery/admin/access-data/${id}`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 
 export const addStationery = async (body) => {
   const token = localStorage.getItem("token");

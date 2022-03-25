@@ -59,10 +59,8 @@ export const updateStatus = async (orderId, status) => {
 export const changeStationeryOrder = async (orderId, newStaioneryId) => {
   const token = localStorage.getItem("token");
   const res = await axiosClient.patch(
-    `/order/admin/${orderId}/stationery`,
-    {
-      newStaioneryId,
-    },
+    `/order/admin/${orderId}/stationery/${newStaioneryId}`,
+    {},
     {
       headers: {
         Authorization: `Bearer ${token}`,

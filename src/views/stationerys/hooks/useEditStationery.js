@@ -1,7 +1,7 @@
 import StationeryCostsData from "../StationeryCostsData";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getStationery, updateStationery, updateStationeryCosts } from "../../../api/stationerys";
+import {getStationery, updateStationery, updateStationeryCosts, updatePaymentData, updateStationeryAccessData} from '../../../api/stationerys';
 
 export const useEditStationery = () => {
   const [user, _setUser] = useState({
@@ -84,7 +84,6 @@ export const useEditStationery = () => {
     }
     // Get stationery by id
     getStationery(id).then((stationery) => {
-      console.log(stationery);
       _setStationery({
         name: stationery.name,
         phone: stationery.phone,
@@ -110,6 +109,7 @@ export const useEditStationery = () => {
       _setUser({
         ...user,
         email: stationery.admin.email,
+        id: stationery.admin.id,
       });
     });
   }, [id]);
@@ -149,6 +149,14 @@ export const useEditStationery = () => {
     updateStationeryCosts(id, costs);
   };
 
+  const editStationeryPaymentInfo = () => {
+    updatePaymentData(paymentData.id, paymentData);
+  };
+
+  const editStationeryAccessData = () => {
+    updateStationeryAccessData(user.id, user);
+  };
+
   return {
     address,
     setAddress,
@@ -167,5 +175,7 @@ export const useEditStationery = () => {
     removeZipcode,
     editStationery,
     editStationeryCosts,
+    editStationeryPaymentInfo,
+    editStationeryAccessData
   };
 };

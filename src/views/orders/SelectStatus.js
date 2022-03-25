@@ -17,30 +17,33 @@ const SelectStatus = ({ order, setModal, setOrder }) => {
 
   return (
     <CRow>
-      <CCol>
-        <CSelect onChange={(e) => setValue(e.target.value)}>
-          <option value="">Selecciona un status</option>
-          <option value="UNPAID">Pendiente de Pago</option>
-          <option value="SEARCHING_STATIONERY">Buscando Papelería</option>
-          <option value="PRINTING">Imprimiendo</option>
-          <option value="SENDING">Enviando</option>
-          <option value="COMPLETED">Completado</option>
-          <option value="REVIEWING">En Revisión</option>
-        </CSelect>
-      </CCol>
-      <CCol>
-        <CButton onClick={onClick} color="primary">
-          <CIcon name="cil-save"></CIcon>
-        </CButton>
-      </CCol>
-      <CCol>
-        <CButton onClick={() => {
-            setOrder(order.id);
-            setModal(true)}
-          } className="btn btn-secondary">
-          <CIcon name="cil-pencil"></CIcon>
-        </CButton>
-      </CCol>
+      <CSelect
+        className="mb-2"
+        value={value}
+        style={{ width: "200px" }}
+        onChange={(e) => setValue(e.target.value)}
+      >
+        <option value="">Selecciona un status</option>
+        <option value="UNPAID">Pendiente de Pago</option>
+        <option value="SEARCHING_STATIONERY">Buscando Papelería</option>
+        <option value="PRINTING">Imprimiendo</option>
+        <option value="REQUESTING_DELIVERYMAN">Repartidor en camino</option>
+        <option value="SENDING">Enviando</option>
+        <option value="COMPLETED">Completado</option>
+        <option value="REVIEWING">En Revisión</option>
+      </CSelect>
+      <CButton className="mr-2" onClick={onClick} color="primary">
+        <CIcon name="cil-save"></CIcon>
+      </CButton>
+      <CButton
+        onClick={() => {
+          setOrder(order.id);
+          setModal(true);
+        }}
+        className="btn btn-secondary"
+      >
+        <CIcon name="cil-pencil"></CIcon>
+      </CButton>
     </CRow>
   );
 };
