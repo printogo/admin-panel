@@ -27,7 +27,7 @@ export const GoogleMap = ({
   return (
     <div className="shadow-xl">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
+        bootstrapURLKeys={{ key: 'AIzaSyBdu71czR6Bbnl6useWaaS-SUIpdm0PDvE' }}
         center={{ lat, lng }}
         defaultZoom={zoom}
         onGoogleApiLoaded={({ map, maps }) => {
