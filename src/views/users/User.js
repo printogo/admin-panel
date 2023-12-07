@@ -208,7 +208,7 @@ const Printing = () => {
         </CRow>
       )}
 
-      <CRow>
+      {/* {<CRow>
         <CCol xs="12" lg="12">
           <CCard>
             <CCardHeader>Ordenes</CCardHeader>
@@ -318,7 +318,7 @@ const Printing = () => {
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow>} */}
       <SelectModal
         options={stationerys}
         modal={modal}
