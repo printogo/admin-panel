@@ -1,4 +1,4 @@
-import StationeryCostsData from "../StationeryCostsData";
+// import StationeryCostsData from "../StationeryCostsData";
 import { addStationery as addStationeryApi } from "../../../api/stationerys";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -36,12 +36,12 @@ export const useAddStationery = () => {
     phone: "",
   });
 
-  const [paymentData, _setPaymentData] = useState({
-    accountName: "",
-    bank: "",
-    accountNumber: "",
-    clabe: "",
-  });
+  // const [paymentData, _setPaymentData] = useState({
+  //   accountName: "",
+  //   bank: "",
+  //   accountNumber: "",
+  //   clabe: "",
+  // });
 
   const setUser = (key, e) =>
     _setUser({
@@ -61,30 +61,30 @@ export const useAddStationery = () => {
       [key]: e.target.value,
     });
 
-  const setPaymentData = (key, e) =>
-    _setPaymentData({
-      ...paymentData,
-      [key]: e.target.value,
-    });
+  // const setPaymentData = (key, e) =>
+  //   _setPaymentData({
+  //     ...paymentData,
+  //     [key]: e.target.value,
+  //   });
 
-  const [costs, setCosts] = useState(
-    StationeryCostsData.map((cost) => ({
-      ...cost,
-      price: (cost.price / 2).toFixed(2),
-    }))
-  );
+  // const [costs, setCosts] = useState(
+  //   StationeryCostsData.map((cost) => ({
+  //     ...cost,
+  //     price: (cost.price / 2).toFixed(2),
+  //   }))
+  // );
 
-  const [reachableZipcodes, setReachableZipcodes] = useState([]);
+  // const [reachableZipcodes, setReachableZipcodes] = useState([]);
 
-  const addZipcode = (zipcode) => {
-    const newZipcodes = [...new Set([...reachableZipcodes, zipcode])];
-    newZipcodes.sort();
-    setReachableZipcodes(newZipcodes);
-  };
+  // const addZipcode = (zipcode) => {
+  //   const newZipcodes = [...new Set([...reachableZipcodes, zipcode])];
+  //   newZipcodes.sort();
+  //   setReachableZipcodes(newZipcodes);
+  // };
 
-  const removeZipcode = (zipcode) => {
-    setReachableZipcodes(reachableZipcodes.filter((item) => item !== zipcode));
-  };
+  // const removeZipcode = (zipcode) => {
+  //   setReachableZipcodes(reachableZipcodes.filter((item) => item !== zipcode));
+  // };
 
   const history = useHistory();
 
@@ -92,8 +92,8 @@ export const useAddStationery = () => {
     try {
       await addStationeryApi({
         stationeryAddress: address,
-        stationeryCosts: costs,
-        reachableZipcodes,
+        // stationeryCosts: costs,
+        // reachableZipcodes,
         name: stationery.name,
         phone: stationery.phone,
         phone2: stationery.phone2,
@@ -105,7 +105,7 @@ export const useAddStationery = () => {
           confirmPassword: user.confirmPassword,
           phone: representative.phone,
         },
-        stationeryPaymentData: paymentData,
+        // stationeryPaymentData: paymentData,
       });
       toast(`La papelería se agrego con éxito`, {type: 'success'});
       history.push('/stationerys');
@@ -124,13 +124,13 @@ export const useAddStationery = () => {
     setStationery,
     representative,
     setRepresentative,
-    paymentData,
-    setPaymentData,
-    costs,
-    setCosts,
-    reachableZipcodes,
-    addZipcode,
-    removeZipcode,
+    // paymentData,
+    // setPaymentData,
+    // costs,
+    // setCosts,
+    // reachableZipcodes,
+    // addZipcode,
+    // removeZipcode,
     addStationery,
   };
 };

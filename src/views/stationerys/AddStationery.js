@@ -1,20 +1,20 @@
 import { CButton, CCol, CRow } from "@coreui/react";
 import {
   faAt,
-  faBuilding,
+  // faBuilding,
   faLock,
   faPhone,
-  faPiggyBank,
+  // faPiggyBank,
   faPrint,
-  faSortNumericUp,
+  // faSortNumericUp,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { GoogleMapAutocomplete } from "../../reusable/GoogleMapsAutocomplete";
 import InputIcon from "../../reusable/InputIcon";
 import React from "react";
-import StationeryCosts from "./StationeryCosts";
-import ZipCodes from "./ZipCodes";
+// import StationeryCosts from "./StationeryCosts";
+// import ZipCodes from "./ZipCodes";
 import { useAddStationery } from "./hooks/useAddStationery";
 
 const AddStationery = () => {
@@ -27,13 +27,13 @@ const AddStationery = () => {
     setStationery,
     representative,
     setRepresentative,
-    paymentData,
-    setPaymentData,
-    costs,
-    setCosts,
-    reachableZipcodes,
-    addZipcode,
-    removeZipcode,
+    // paymentData,
+    // setPaymentData,
+    // costs,
+    // setCosts,
+    // reachableZipcodes,
+    // addZipcode,
+    // removeZipcode,
     addStationery
   } = useAddStationery();
 
@@ -91,11 +91,11 @@ const AddStationery = () => {
             value={user.confirmPassword}
             onChange={(e) => setUser("confirmPassword", e)}
           />
-          <ZipCodes
+          {/* <ZipCodes
             addZipCode={addZipcode}
             reachableZipcodes={reachableZipcodes}
             removeZipcode={removeZipcode}
-          />
+          /> */}
         </CCol>
         <CCol lg={4} md={6} sm={12}>
           <h4>Datos de un representante</h4>
@@ -133,7 +133,7 @@ const AddStationery = () => {
           />
         </CCol>
       </CRow>
-      <CRow>
+      {/* <CRow>
         <CCol lg={4}>
           <h4>Datos de pago</h4>
           <InputIcon
@@ -175,7 +175,7 @@ const AddStationery = () => {
             <StationeryCosts costs={costs} setCosts={setCosts} />
           </div>
         </CCol>
-      </CRow>
+      </CRow> */}
       <CRow className="text-center my-5">
         <CCol>
           <CButton onClick={addStationery} className="w-75" size="lg" color="primary">

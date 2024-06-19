@@ -1,21 +1,21 @@
 import { CButton, CCol, CRow } from "@coreui/react";
 import {
   faAt,
-  faBuilding,
+  // faBuilding,
   faLock,
   faPhone,
-  faPiggyBank,
+  // faPiggyBank,
   faPrint,
   faRoad,
-  faSortNumericUp,
+  // faSortNumericUp,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { GoogleMapAutocomplete } from "../../reusable/GoogleMapsAutocomplete";
 import InputIcon from "../../reusable/InputIcon";
 import React from "react";
-import StationeryCosts from "./StationeryCosts";
-import ZipCodes from "./ZipCodes";
+// import StationeryCosts from "./StationeryCosts";
+// import ZipCodes from "./ZipCodes";
 import { useEditStationery } from "./hooks/useEditStationery";
 
 const EditStationery = () => {
@@ -28,21 +28,21 @@ const EditStationery = () => {
     setStationery,
     representative,
     setRepresentative,
-    paymentData,
-    setPaymentData,
-    costs,
-    setCosts,
-    reachableZipcodes,
-    addZipcode,
-    removeZipcode,
-    editStationeryCosts,
-    editStationeryPaymentInfo,
+    // paymentData,
+    // setPaymentData,
+    // costs,
+    // setCosts,
+    // reachableZipcodes,
+    // addZipcode,
+    // removeZipcode,
+    // editStationeryCosts,
+    // editStationeryPaymentInfo,
     editStationeryAccessData
   } = useEditStationery();
 
   return (
     <div>
-      <h1>Agregar papelería</h1>
+      <h1>Editar papelería</h1>
       <CRow>
         <CCol lg={4} md={6} sm={12}>
           <h4>Datos de la papelería</h4>
@@ -110,11 +110,11 @@ const EditStationery = () => {
           >
             Guardar
           </CButton>
-          <ZipCodes
+          {/* <ZipCodes
             addZipCode={addZipcode}
             reachableZipcodes={reachableZipcodes}
             removeZipcode={removeZipcode}
-          />
+          /> */}
         </CCol>
         <CCol lg={4} md={6} sm={12}>
           <h4>Datos de un representante</h4>
@@ -152,7 +152,7 @@ const EditStationery = () => {
           />
         </CCol>
       </CRow>
-      <CRow>
+      {/* <CRow>
         <CCol lg={4}>
           <h4>Datos de pago</h4>
           <InputIcon
@@ -211,7 +211,7 @@ const EditStationery = () => {
           </CButton>
 
         </CCol>
-      </CRow>
+      </CRow> */}
       
     </div>
   );
