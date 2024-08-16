@@ -5,6 +5,6 @@ export const login = async (email, password) => {
     email,
     password,
   });
-  console.log(res.data);
-  return res.data;
+  if(res.data.user.role === 'ADMIN') return res.data;
+  throw new Error('Wrong credentials')
 };

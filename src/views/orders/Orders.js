@@ -78,14 +78,7 @@ const Orders = () => {
       search.field,
       search.value
     ).then((res) => {
-      setOrders(
-        res.orders.map((order) => {
-          order.printings = res.documents.filter((document) => {
-            return document.orderId === order.id;
-          });
-          return order;
-        })
-      );
+      setOrders(res.orders)
       setPages(res.count);
     });
   }, [options, status, search]);
@@ -96,12 +89,12 @@ const Orders = () => {
 
   const fields = [
     "#Orden",
-    "direccion",
+    // "direccion",
     "papelería",
     "telefono",
     "usuario",
-    "costoDeEnvio",
-    "costoPapeleria",
+    // "costoDeEnvio",
+    // "costoPapeleria",
     "costoTotal",
     "fechaPedido",
     "impresiones",
@@ -140,13 +133,13 @@ const Orders = () => {
                 pagination
                 scopedSlots={{
                   "#Orden": (order) => <td>{order.orderNumber}</td>,
-                  direccion: (order) => (
-                    <td>
-                      <Link to={`/address/${order.address.id}`}>
-                        {order.address.description}
-                      </Link>
-                    </td>
-                  ),
+                  // direccion: (order) => (
+                  //   <td>
+                  //     <Link to={`/address/${order.address.id}`}>
+                  //       {order.address.description}
+                  //     </Link>
+                  //   </td>
+                  // ),
                   papelería: (order) => (
                     <td>
                       <Link to={`/stationery-address/${order.stationery.id}`}>
@@ -157,15 +150,15 @@ const Orders = () => {
                   numeroDeOrden: (order) => <td>{order.orderNumber}</td>,
                   telefono: (order) => (
                     <td>
-                      <a href={`tel:${order.phone}`}>{order.phone}</a>
+                      <a href={`tel:${order.user.phone}`}>{order.user.phone}</a>
                     </td>
                   ),
-                  costoDeEnvio: (order) => (
-                    <td>{currency(order.shppingCost).format()}</td>
-                  ),
-                  costoPapeleria: (order) => (
-                    <td>{currency(order.stationeryCost).format()}</td>
-                  ),
+                  // costoDeEnvio: (order) => (
+                  //   <td>{currency(order.shppingCost).format()}</td>
+                  // ),
+                  // costoPapeleria: (order) => (
+                  //   <td>{currency(order.stationeryCost).format()}</td>
+                  // ),
                   costoTotal: (order) => (
                     <td>{currency(order.totalCost).format()}</td>
                   ),
@@ -183,18 +176,38 @@ const Orders = () => {
                   ),
                   impresiones: (order) => (
                     <td>
-                      {order.printings.map((printing) => (
                         <ul key={order.id}>
-                          {printing.printings.map((doc) => (
-                            <li key={doc.id}>
-                              {" "}
-                              <Link to={`/printing/${doc.id}`}>
-                                {doc.fileName}
-                              </Link>
-                            </li>
-                          ))}
+                      {order.cart.documents.length > 0 && (
+                        order.cart.documents?.map((doc) => (
+                          <li key={doc.id}>
+                            {" "}
+                            <Link to={`/printing/${doc.id}`}>
+                              {doc.fileName}
+                            </Link>
+                          </li>
+                        ))
+                      )}
+                      {order.cart.posters.length > 0 && (
+                        order.cart.posters?.map((doc) => (
+                          <li key={doc.id}>
+                            {" "}
+                            <Link to={`/printing/${doc.id}`}>
+                              {doc.fileName}
+                            </Link>
+                          </li>
+                        ))
+                      )}
+                      {order.cart.blueprints.length > 0 && (
+                        order.cart.blueprints?.map((doc) => (
+                          <li key={doc.id}>
+                            {" "}
+                            <Link to={`/printing/${doc.id}`}>
+                              {doc.fileName}
+                            </Link>
+                          </li>
+                        ))
+                      )}
                         </ul>
-                      ))}
                       <Link to={`/printings/${order.id}`}>
                         <CButton className="ml-5" color="success">
                           Ver todos

@@ -1,7 +1,6 @@
-// import StationeryCostsData from "../StationeryCostsData";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import {getStationery, updateStationery, /*updateStationeryCosts, updatePaymentData,*/ updateStationeryAccessData} from '../../../api/stationerys';
+import {getStationery, updateStationery, updateStationeryAccessData} from '../../../api/stationerys';
 
 export const useEditStationery = () => {
   const [user, _setUser] = useState({
@@ -35,13 +34,6 @@ export const useEditStationery = () => {
     phone: "",
   });
 
-  // const [paymentData, _setPaymentData] = useState({
-  //   accountName: "",
-  //   bank: "",
-  //   accountNumber: "",
-  //   clabe: "",
-  // });
-
   const setUser = (key, e) =>
     _setUser({
       ...user,
@@ -59,21 +51,6 @@ export const useEditStationery = () => {
       ...representative,
       [key]: e.target.value,
     });
-
-  // const setPaymentData = (key, e) =>
-  //   _setPaymentData({
-  //     ...paymentData,
-  //     [key]: e.target.value,
-  //   });
-
-  // const [costs, setCosts] = useState(
-  //   StationeryCostsData.map((cost) => ({
-  //     ...cost,
-  //     price: (cost.price / 2).toFixed(2),
-  //   }))
-  // );
-
-  // const [reachableZipcodes, setReachableZipcodes] = useState([]);
 
   const { id } = useParams();
 
@@ -97,38 +74,19 @@ export const useEditStationery = () => {
         lastName: stationery.admin.lastName,
         phone: stationery.admin.phone,
       });
-      // if (stationery.costs) {
-      //   setCosts(stationery.costs);
-      // }
-      // if (stationery.reachableZipcodes) {
-      //   setReachableZipcodes(stationery.reachableZipcodes);
-      // }
-      // if (stationery.paymentData) {
-      //   _setPaymentData(stationery.paymentData);
-      // }
       _setUser({
         ...user,
         email: stationery.admin.email,
         id: stationery.admin.id,
       });
     });
+    // eslint-disable-next-line
   }, [id]);
 
-  // const addZipcode = (zipcode) => {
-  //   const newZipcodes = [...new Set([...reachableZipcodes, zipcode])];
-  //   newZipcodes.sort();
-  //   setReachableZipcodes(newZipcodes);
-  // };
-
-  // const removeZipcode = (zipcode) => {
-  //   setReachableZipcodes(reachableZipcodes.filter((item) => item !== zipcode));
-  // };
-
   const editStationery = () => {
-    updateStationery(id, {
+    updateStationery({
+      stationeryId: id,
       stationeryAddress: address,
-      // stationeryCosts: costs,
-      // reachableZipcodes,
       name: stationery.name,
       phone: stationery.phone,
       phone2: stationery.phone2,
@@ -140,18 +98,8 @@ export const useEditStationery = () => {
         confirmPassword: user.confirmPassword,
         phone: representative.phone,
       },
-      // stationeryPaymentData: paymentData,
     });
   };
-
-  // const editStationeryCosts = () => {
-  //   console.log(costs);
-  //   updateStationeryCosts(id, costs);
-  // };
-
-  // const editStationeryPaymentInfo = () => {
-  //   updatePaymentData(paymentData.id, paymentData);
-  // };
 
   const editStationeryAccessData = () => {
     updateStationeryAccessData(user.id, user);
@@ -166,16 +114,7 @@ export const useEditStationery = () => {
     setStationery,
     representative,
     setRepresentative,
-    // paymentData,
-    // setPaymentData,
-    // costs,
-    // setCosts,
-    // reachableZipcodes,
-    // addZipcode,
-    // removeZipcode,
     editStationery,
-    // editStationeryCosts,
-    // editStationeryPaymentInfo,
     editStationeryAccessData
   };
 };

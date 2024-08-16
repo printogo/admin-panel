@@ -61,6 +61,11 @@ const Users = () => {
           text: "Usuario",
           color: "success",
         };
+      case "STATIONERY":
+        return {
+          text: "Papelería",
+          color: "warning"
+        }
       default:
         return {
           text: "Usuario",

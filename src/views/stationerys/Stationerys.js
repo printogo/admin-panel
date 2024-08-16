@@ -8,7 +8,7 @@ import {
   CRow,
 } from "@coreui/react";
 import React, { useEffect, useState } from "react";
-import { getAllStationerys, updateStationery } from "src/api/stationerys";
+import { getAllStationerys, updateStationeryStatus } from "src/api/stationerys";
 
 import CIcon from "@coreui/icons-react";
 import { Link } from "react-router-dom";
@@ -31,7 +31,7 @@ const Stationerys = () => {
 
   const handleClick = async (id, status) => {
     try {
-      await updateStationery(id, status);
+      await updateStationeryStatus(id, status);
       toast("La papelería se actualizó con éxito", {
         type: "success",
       });

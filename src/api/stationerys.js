@@ -21,10 +21,23 @@ export const getAllStationerys = async () => {
   return res.data;
 };
 
-export const updateStationery = async (id, active) => {
+export const updateStationery = async (payload) => {
   const token = localStorage.getItem("token");
   return await axiosClient.put(
     "stationery/admin",
+    payload,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+export const updateStationeryStatus = async (id, active) => {
+  const token = localStorage.getItem("token");
+  return await axiosClient.put(
+    "stationery/status/admin",
     {
       id,
       active,

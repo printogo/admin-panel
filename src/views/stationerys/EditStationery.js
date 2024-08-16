@@ -1,21 +1,16 @@
 import { CButton, CCol, CRow } from "@coreui/react";
 import {
   faAt,
-  // faBuilding,
   faLock,
   faPhone,
-  // faPiggyBank,
   faPrint,
   faRoad,
-  // faSortNumericUp,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { GoogleMapAutocomplete } from "../../reusable/GoogleMapsAutocomplete";
 import InputIcon from "../../reusable/InputIcon";
 import React from "react";
-// import StationeryCosts from "./StationeryCosts";
-// import ZipCodes from "./ZipCodes";
 import { useEditStationery } from "./hooks/useEditStationery";
 
 const EditStationery = () => {
@@ -28,16 +23,8 @@ const EditStationery = () => {
     setStationery,
     representative,
     setRepresentative,
-    // paymentData,
-    // setPaymentData,
-    // costs,
-    // setCosts,
-    // reachableZipcodes,
-    // addZipcode,
-    // removeZipcode,
-    // editStationeryCosts,
-    // editStationeryPaymentInfo,
-    editStationeryAccessData
+    editStationery,
+    // editStationeryAccessData
   } = useEditStationery();
 
   return (
@@ -102,19 +89,14 @@ const EditStationery = () => {
             value={user.confirmPassword}
             onChange={(e) => setUser("confirmPassword", e)}
           />
-          <CButton
+          {/* <CButton
             onClick={editStationeryAccessData}
             className="w-100 mb-2"
             size="lg"
             color="primary"
           >
-            Guardar
-          </CButton>
-          {/* <ZipCodes
-            addZipCode={addZipcode}
-            reachableZipcodes={reachableZipcodes}
-            removeZipcode={removeZipcode}
-          /> */}
+            Guardar Datos de Acceso
+          </CButton> */}
         </CCol>
         <CCol lg={4} md={6} sm={12}>
           <h4>Datos de un representante</h4>
@@ -151,68 +133,19 @@ const EditStationery = () => {
             onChange={(e) => setRepresentative("phone", e)}
           />
         </CCol>
+      </CRow>      
+      <CRow>
+        <CCol sm={12}> 
+        <CButton
+            onClick={editStationery}
+            className="w-100 mb-2"
+            size="lg"
+            color="primary"
+          >
+            Guardar
+          </CButton>
+        </CCol>
       </CRow>
-      {/* <CRow>
-        <CCol lg={4}>
-          <h4>Datos de pago</h4>
-          <InputIcon
-            className="p-2 my-2"
-            icon={faUser}
-            type="text"
-            placeholder="Nombre Completo o Razón Social"
-            value={paymentData.accountName}
-            onChange={(e) => setPaymentData("accountName", e)}
-          />
-          <InputIcon
-            className="p-2 my-2"
-            icon={faBuilding}
-            type="text"
-            placeholder="Banco"
-            value={paymentData.bank}
-            onChange={(e) => setPaymentData("bank", e)}
-          />
-          <InputIcon
-            className="p-2 my-2"
-            icon={faPiggyBank}
-            type="text"
-            placeholder="Número de cuenta"
-            value={paymentData.accountNumber}
-            onChange={(e) => setPaymentData("accountNumber", e)}
-          />
-          <InputIcon
-            className="p-2 my-2"
-            icon={faSortNumericUp}
-            type="text"
-            placeholder="Clabe Interbancaria (18 digitos)"
-            value={paymentData.clabe}
-            onChange={(e) => setPaymentData("clabe", e)}
-          />
-          <CButton
-            onClick={editStationeryPaymentInfo}
-            className="w-100"
-            size="lg"
-            color="primary"
-          >
-            Actualizar Datos Pago
-          </CButton>
-        </CCol>
-        <CCol lg={8} md={10} sm={12}>
-          <h4>Costos</h4>
-          <div style={{ height: "500px", overflowY: "scroll" }}>
-            <StationeryCosts costs={costs} setCosts={setCosts} />
-          </div>
-          <CButton
-            onClick={editStationeryCosts}
-            className="w-100"
-            size="lg"
-            color="primary"
-          >
-            Actualizar Costos
-          </CButton>
-
-        </CCol>
-      </CRow> */}
-      
     </div>
   );
 };
