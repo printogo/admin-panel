@@ -10,7 +10,7 @@ import {
   CPagination,
   CRow,
 } from "@coreui/react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 import SelectStatus from "./SelectStatus";
@@ -89,7 +89,7 @@ const Orders = () => {
 
   const fields = [
     "#Orden",
-    // "direccion",
+    "direccion",
     "papelería",
     "telefono",
     "usuario",
@@ -133,16 +133,16 @@ const Orders = () => {
                 pagination
                 scopedSlots={{
                   "#Orden": (order) => <td>{order.orderNumber}</td>,
-                  // direccion: (order) => (
-                  //   <td>
-                  //     <Link to={`/address/${order.address.id}`}>
-                  //       {order.address.description}
-                  //     </Link>
-                  //   </td>
-                  // ),
+                  direccion: (order) => (
+                    <td>
+                      <Link to={`/stationery-address/${order.stationery.address.id}`}>
+                        {order.stationery.address.description}
+                      </Link>
+                    </td>
+                  ),
                   papelería: (order) => (
                     <td>
-                      <Link to={`/stationery-address/${order.stationery.id}`}>
+                      <Link to={`/stationery-address/${order.stationery.address.id}`}>
                         {order.stationery.name}
                       </Link>
                     </td>
@@ -160,7 +160,7 @@ const Orders = () => {
                   //   <td>{currency(order.stationeryCost).format()}</td>
                   // ),
                   costoTotal: (order) => (
-                    <td>{currency(order.totalCost).format()}</td>
+                    <td>{currency(order.grandSubtotal).format()}</td>
                   ),
                   fechaPedido: (order) => (
                     <td>

@@ -11,7 +11,9 @@ const StationeryAddress = () => {
 
   useEffect(() => {
     if (id) {
-      getStationeryAddress(id).then(setAddress);
+      getStationeryAddress(id).then((add) => {
+        setAddress(add)
+      });
     }
   }, [id]);
 

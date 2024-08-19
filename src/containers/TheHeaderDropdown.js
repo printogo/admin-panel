@@ -8,14 +8,12 @@ import {
   CImg,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { types } from "src/types/types";
 import { useHistory } from "react-router-dom";
 
 const TheHeaderDropdown = () => {
   const dispatch = useDispatch();
-  const auth = useSelector((state) => state);
-  console.log(auth);
   const history = useHistory();
   const logout = () => {
     localStorage.removeItem("token");

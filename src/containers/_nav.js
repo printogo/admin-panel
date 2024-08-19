@@ -19,39 +19,54 @@ export default [
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Pendientes de Pago",
-        to: "/orders/unpaid",
+        name: "Activas",
+        to: "/orders/active",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Buscando papelería",
-        to: "/orders/searching_stationery",
+        name: "Asignadas",
+        to: "/orders/assigned",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Imprimiendo",
-        to: "/orders/printing",
+        name: "Finalizadas",
+        to: "/orders/finished",
       },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Repartidor en camnino",
-        to: "/orders/requesting_deliveryman",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Enviando",
-        to: "/orders/sending",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Completadas",
-        to: "/orders/completed",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "En Disputa",
-        to: "/orders/reviewing",
-      },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "Pendientes de Pago",
+      //   to: "/orders/unpaid",
+      // },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "Buscando papelería",
+      //   to: "/orders/searching_stationery",
+      // },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "Imprimiendo",
+      //   to: "/orders/printing",
+      // },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "Repartidor en camnino",
+      //   to: "/orders/requesting_deliveryman",
+      // },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "Enviando",
+      //   to: "/orders/sending",
+      // },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "Completadas",
+      //   to: "/orders/completed",
+      // },
+      // {
+      //   _tag: "CSidebarNavItem",
+      //   name: "En Disputa",
+      //   to: "/orders/reviewing",
+      // },
     ],
   },
   {
