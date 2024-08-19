@@ -37,7 +37,7 @@ const Login = () => {
         type: types.login,
         payload: res,
       });
-      history.push("/dashboard");
+      history.push("/orders/all");
     } catch (error) {
       toast("Error en email y/o contraseña", { type: "error" });
     }
