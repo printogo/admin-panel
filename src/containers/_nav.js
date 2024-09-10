@@ -19,13 +19,19 @@ export default [
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Activas",
-        to: "/orders/active",
+        name: "Asignadas",
+        to: "/orders/assigned",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Asignadas",
-        to: "/orders/assigned",
+        name: "Pendientes",
+        to: "/orders/pending",
+      },
+
+      {
+        _tag: "CSidebarNavItem",
+        name: "Lista para recoger",
+        to: "/orders/readytpu",
       },
       {
         _tag: "CSidebarNavItem",
@@ -111,18 +117,23 @@ export default [
   {
     _tag: "CSidebarNavDropdown",
     name: "Precios",
-    to: "/prices",
+    to: "/document-prices",
     icon: <CIcon name="cil-dollar" customClasses="c-sidebar-nav-icon" />,
     _children: [
       {
         _tag: "CSidebarNavItem",
-        name: "Impresiones",
-        to: "/prices",
+        name: "Documentos",
+        to: "/document-prices",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Otros Precios",
-        to: "/other-prices",
+        name: "Planos",
+        to: "/blueprint-prices",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Posters",
+        to: "/poster-prices",
       }
     ],
   },

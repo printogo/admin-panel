@@ -27,7 +27,7 @@ const Prices = () => {
               Precios
             </CCardHeader>
             <CCardBody>
-            <PricesTable costs={prices} setCosts={setPrices} />
+              <PricesTable costs={prices} setCosts={setPrices} />
             </CCardBody>
           </CCard>
         </CCol>

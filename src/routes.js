@@ -1,8 +1,6 @@
 import AddStationery from "./views/stationerys/AddStationery";
 import Address from "./views/address/Address";
 import Orders from "./views/orders/Orders";
-import Prices from "./views/prices/Prices";
-import OtherPrices from "./views/prices/OtherPrices";
 
 import Printing from "./views/printings/Printing";
 import Printings from "./views/printings/Printings";
@@ -13,6 +11,18 @@ import EditStationery from "./views/stationerys/EditStationery";
 import Maintenances from "./views/maintenance/Maintenance";
 import Schedules from "./views/schedule/Schedules";
 import Coupons from "./views/coupons/Coupons";
+import DocumentPrices from "./views/prices/documents/DocumentPrices";
+import BlueprintPrices from "./views/prices/blueprints/BlueprintPrices";
+import PosterPrices from "./views/prices/posters/PosterPrices";
+import BaseBlueprintPrice from "./views/prices/blueprints/BaseBlueprintPrice";
+import AdditionalBlueprintPrice from "./views/prices/blueprints/AdditionalBlueprintPrice";
+import BasePosterPrice from "./views/prices/posters/BasePosterPrice";
+import AdditionalPosterPrice from "./views/prices/posters/AdditionalPosterPrice";
+import BaseDocumentPrice from "./views/prices/documents/BaseDocumentPrice";
+import OpcDocumentPrice from "./views/prices/documents/OpcDocumentPrice";
+import LaminateDocumentPrice from "./views/prices/documents/LaminateDocumentPrice";
+import CrimpDocumentPrice from "./views/prices/documents/CrimpDocumentPrice";
+import FolderDocumentPrice from "./views/prices/documents/FolderDocumentPrice";
 
 const Toaster = React.lazy(() =>
   import("./views/notifications/toaster/Toaster")
@@ -158,16 +168,76 @@ const routes = [
     component: EditStationery,
   },
   {
-    path: "/prices",
+    path: "/document-prices",
     exact: true,
-    name: "Precios",
-    component: Prices,
+    name: "Documentos",
+    component: DocumentPrices,
   },
   {
-    path: "/other-prices",
+    path: "/document-prices/base/:id",
     exact: true,
-    name: "Otros Precios",
-    component: OtherPrices,
+    name: "Base Documentos",
+    component: BaseDocumentPrice,
+  },
+  {
+    path: "/document-prices/paper/:id",
+    exact: true,
+    name: "Tipo Papel Documentos",
+    component: OpcDocumentPrice,
+  },
+  {
+    path: "/document-prices/laminate/:id",
+    exact: true,
+    name: "Opciones Enmicado Documentos",
+    component: LaminateDocumentPrice,
+  },
+  {
+    path: "/document-prices/crimp/:id",
+    exact: true,
+    name: "Opciones Encuadernado Documentos",
+    component: CrimpDocumentPrice,
+  },
+  {
+    path: "/document-prices/folder/:id",
+    exact: true,
+    name: "Folder Documentos",
+    component: FolderDocumentPrice,
+  },
+  {
+    path: "/blueprint-prices",
+    exact: true,
+    name: "Planos",
+    component: BlueprintPrices,
+  },
+  {
+    path: "/blueprint-prices/base/:id",
+    exact: true,
+    name: "Base Planos",
+    component: BaseBlueprintPrice,
+  },
+  {
+    path: "/blueprint-prices/custom/:id",
+    exact: true,
+    name: "Custom Planos",
+    component: AdditionalBlueprintPrice,
+  },
+  {
+    path: "/poster-prices",
+    exact: true,
+    name: "Posters",
+    component: PosterPrices,
+  },
+  {
+    path: "/poster-prices/base/:id",
+    exact: true,
+    name: "Base Poster",
+    component: BasePosterPrice,
+  },
+  {
+    path: "/poster-prices/custom/:id",
+    exact: true,
+    name: "Custom Poster",
+    component: AdditionalPosterPrice,
   },
   {
     path: "/maintenances",

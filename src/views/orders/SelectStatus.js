@@ -24,9 +24,9 @@ const SelectStatus = ({ order, setModal, setOrder }) => {
         onChange={(e) => setValue(e.target.value)}
       >
         <option value="">Selecciona un status</option>
-        <option value="ACTIVE">Activa</option>
         <option value="ASSIGNED">Asignado</option>
         <option value="PENDING">Pendiente</option>
+        <option value="READYTPU">Listo para recoger</option>
         <option value="FINISHED">Finalizado</option>
       </CSelect>
       <CButton className="mr-2" onClick={onClick} color="primary">

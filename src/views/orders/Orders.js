@@ -135,7 +135,7 @@ const Orders = () => {
                   "#Orden": (order) => <td>{order.orderNumber}</td>,
                   direccion: (order) => (
                     <td>
-                      <Link to={`/stationery-address/${order.stationery.address.id}`}>
+                      <Link to={`/stationery-address/${order.stationery.address?.id}`}>
                         {order.stationery.address.description}
                       </Link>
                     </td>

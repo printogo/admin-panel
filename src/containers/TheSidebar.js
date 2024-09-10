@@ -25,17 +25,17 @@ const TheSidebar = () => {
   return (
     <CSidebar
       show={show}
-      onShowChange={(val) => dispatch({type: types.setSidebar, payload: val })}
+      onShowChange={(val) => dispatch({ type: types.setSidebar, payload: val })}
     >
       <CSidebarBrand className="d-md-down-none" to="/">
-      <CImg
-          src={"logo.png"}
+        <CImg
+          src={"om-logo.png"}
           className="c-sidebar-brand-full"
           alt="admin@bootstrapmaster.com"
-          height={50}
+          height={40}
         />
         <CImg
-          src={"logo.png"}
+          src={"om-logo.png"}
           className="c-sidebar-brand-minimized"
           alt="admin@bootstrapmaster.com"
           height={15}
@@ -53,7 +53,7 @@ const TheSidebar = () => {
           }}
         />
       </CSidebarNav>
-      <CSidebarMinimizer className="c-d-md-down-none"/>
+      <CSidebarMinimizer className="c-d-md-down-none" />
     </CSidebar>
   )
 }
