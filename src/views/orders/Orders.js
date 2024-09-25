@@ -53,7 +53,7 @@ const Orders = () => {
         selectedOrder,
         selectedStationery
       );
-      console.log(newOrder);
+      // console.log(newOrder);
       const updatedOrders = orders.map((order) => {
         if (newOrder.id === order.id) {
           return { ...order, stationery: newOrder.stationery };
@@ -176,38 +176,38 @@ const Orders = () => {
                   ),
                   impresiones: (order) => (
                     <td>
-                        <ul key={order.id}>
-                      {order.cart.documents.length > 0 && (
-                        order.cart.documents?.map((doc) => (
-                          <li key={doc.id}>
-                            {" "}
-                            <Link to={`/printing/${doc.id}`}>
-                              {doc.fileName}
-                            </Link>
-                          </li>
-                        ))
-                      )}
-                      {order.cart.posters.length > 0 && (
-                        order.cart.posters?.map((doc) => (
-                          <li key={doc.id}>
-                            {" "}
-                            <Link to={`/printing/${doc.id}`}>
-                              {doc.fileName}
-                            </Link>
-                          </li>
-                        ))
-                      )}
-                      {order.cart.blueprints.length > 0 && (
-                        order.cart.blueprints?.map((doc) => (
-                          <li key={doc.id}>
-                            {" "}
-                            <Link to={`/printing/${doc.id}`}>
-                              {doc.fileName}
-                            </Link>
-                          </li>
-                        ))
-                      )}
-                        </ul>
+                      <ul key={order.id}>
+                        {order.cart.documents.length > 0 && (
+                          order.cart.documents?.map((doc) => (
+                            <li key={doc.id}>
+                              {" "}
+                              <Link to={`/printing/${doc.id}`}>
+                                {doc.fileName}
+                              </Link>
+                            </li>
+                          ))
+                        )}
+                        {order.cart.posters.length > 0 && (
+                          order.cart.posters?.map((doc) => (
+                            <li key={doc.id}>
+                              {" "}
+                              <Link to={`/printing/${doc.id}`}>
+                                {doc.fileName}
+                              </Link>
+                            </li>
+                          ))
+                        )}
+                        {order.cart.blueprints.length > 0 && (
+                          order.cart.blueprints?.map((doc) => (
+                            <li key={doc.id}>
+                              {" "}
+                              <Link to={`/printing/${doc.id}`}>
+                                {doc.fileName}
+                              </Link>
+                            </li>
+                          ))
+                        )}
+                      </ul>
                       <Link to={`/printings/${order.id}`}>
                         <CButton className="ml-5" color="success">
                           Ver todos
