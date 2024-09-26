@@ -5,9 +5,11 @@ import { getBlueprintPrice, updateBasePrice } from 'src/api/prices';
 import { parseMoney } from 'src/helpers/formatter';
 import { toast } from 'react-toastify';
 import UpdateBasePriceModal from './UpdateBasePrice';
+import Loader from 'src/reusable/Loader';
 
 const BaseBlueprintPrice = () => {
     const { id } = useParams();
+    const [isLoading, setIsLoading] = useState(true);
 
     const fields = ["tipo impresion", "sku", "descripcion", "precio", "acciones"]
     const [items, setItems] = useState([]);
@@ -22,6 +24,7 @@ const BaseBlueprintPrice = () => {
             setItems(ite.paperDimension)
             setImpType(`${ite.printingType} ${ite.paperType}`)
         })
+            .finally(() => setIsLoading(false))
     }, [id]);
 
     const handleUpdate = async () => {
@@ -38,6 +41,7 @@ const BaseBlueprintPrice = () => {
 
     return (
         <>
+            <Loader isLoading={isLoading} />
             <CRow>
                 <CCol xs="12" lg="12">
                     <CCardHeader className="d-flex justify-content-between">

@@ -5,9 +5,11 @@ import { getDocumentPrice, updateDocumentLaminatePrice } from 'src/api/prices';
 import { parseMoney } from 'src/helpers/formatter';
 import { toast } from 'react-toastify';
 import UpdateLaminateDocumentPriceModal from './UpdateLaminatePriceModal';
+import Loader from 'src/reusable/Loader';
 
 const LaminateDocumentPrice = () => {
     const { id } = useParams();
+    const [isLoading, setIsLoading] = useState(true);
 
     const fields = ["tipo impresion", "sku", "descripcion", "precio", "acciones"]
     const [items, setItems] = useState([]);
@@ -21,7 +23,7 @@ const LaminateDocumentPrice = () => {
             const ite = res.filter((r) => r.id === id)[0];
             setItems([ite.laminateOption])
             setImpType(`${ite.printingType} ${ite.paperSheetType}`)
-        })
+        }).finally(() => setIsLoading(false))
     }, [id]);
 
     const handleUpdate = async () => {
@@ -39,6 +41,7 @@ const LaminateDocumentPrice = () => {
 
     return (
         <>
+            <Loader isLoading={isLoading} />
             <CRow>
                 <CCol xs="12" lg="12">
                     <CCardHeader className="d-flex justify-content-between">

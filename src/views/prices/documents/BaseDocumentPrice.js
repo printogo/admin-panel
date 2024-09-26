@@ -5,9 +5,11 @@ import { getDocumentPrice, updateDocumentBasePrice } from 'src/api/prices';
 import { parseMoney } from 'src/helpers/formatter';
 import { toast } from 'react-toastify';
 import UpdateBaseDocumentPriceModal from './UpdateBasePriceModal';
+import Loader from 'src/reusable/Loader';
 
 const BaseDocumentPrice = () => {
     const { id } = useParams();
+    const [isLoading, setIsLoading] = useState(true);
 
     const fields = ["tipo impresion", "sku", "descripcion", "precio", "acciones"]
     const [items, setItems] = useState([]);
@@ -21,7 +23,7 @@ const BaseDocumentPrice = () => {
             const ite = res.filter((r) => r.id === id)[0];
             setItems(ite.paperSize)
             setImpType(`${ite.printingType} ${ite.paperSheetType}`)
-        })
+        }).finally(() => setIsLoading(false))
     }, [id]);
 
     const handleUpdate = async () => {
@@ -39,6 +41,7 @@ const BaseDocumentPrice = () => {
 
     return (
         <>
+            <Loader isLoading={isLoading} />
             <CRow>
                 <CCol xs="12" lg="12">
                     <CCardHeader className="d-flex justify-content-between">

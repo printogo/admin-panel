@@ -5,9 +5,11 @@ import { getBlueprintPrice, updateCustomPrice } from 'src/api/prices';
 import { parseMoney } from 'src/helpers/formatter';
 import { toast } from 'react-toastify';
 import UpdateAdditionalBPPriceModal from './UpdateAdditionalBPPrice';
+import Loader from 'src/reusable/Loader';
 
 const AdditionalBlueprintPrice = () => {
     const { id } = useParams();
+    const [isLoading, setIsLoading] = useState(true);
 
     const fields = ["tipo impresion", "sku", "descripcion", "precio", "acciones"]
     const [items, setItems] = useState([]);
@@ -21,7 +23,7 @@ const AdditionalBlueprintPrice = () => {
             const ite = res.filter((r) => r.id === id)[0];
             setItems([ite.customSize])
             setImpType(`${ite.printingType} ${ite.paperType}`)
-        })
+        }).finally(() => setIsLoading(false))
     }, [id]);
 
     const handleUpdate = async () => {
@@ -40,6 +42,7 @@ const AdditionalBlueprintPrice = () => {
 
     return (
         <>
+            <Loader isLoading={isLoading} />
             <CRow>
                 <CCol xs="12" lg="12">
                     <CCardHeader className="d-flex justify-content-between">
