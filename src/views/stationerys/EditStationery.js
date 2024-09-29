@@ -43,7 +43,7 @@ const EditStationery = () => {
           />
           <GoogleMapAutocomplete address={address} setAddress={setAddress} />
           <textarea
-            value={address.description}
+            value={address?.description}
             disabled={true}
             className="w-100"
             icon={faRoad}

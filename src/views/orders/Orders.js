@@ -129,7 +129,7 @@ const Orders = () => {
               <CDataTable
                 items={orders}
                 fields={fields}
-                itemsPerPage={20}
+                itemsPerPage={10}
                 pagination
                 scopedSlots={{
                   "#Orden": (order) => <td>{order.orderNumber}</td>,
@@ -226,13 +226,6 @@ const Orders = () => {
                   ),
                 }}
               />
-              <CPagination
-                activePage={options.page}
-                pages={pages}
-                onActivePageChange={(i) => {
-                  setOptions({ ...options, page: i });
-                }}
-              ></CPagination>
             </CCardBody>
           </CCard>
         </CCol>

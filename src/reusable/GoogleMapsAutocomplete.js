@@ -5,7 +5,6 @@ import GooglePlacesAutocomplete, {
 import React from "react";
 
 export const GoogleMapAutocomplete = ({ address, setAddress }) => {
-
   const onSelect = async (selection) => {
     try {
       const res = await geocodeByAddress(selection["value"]["description"]);
@@ -41,6 +40,10 @@ export const GoogleMapAutocomplete = ({ address, setAddress }) => {
       console.log(error);
     }
   };
+
+  if (!address) {
+    return null;
+  }
 
   return (
     <div className="">

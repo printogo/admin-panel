@@ -98,6 +98,8 @@ export const useEditStationery = () => {
         confirmPassword: user.confirmPassword,
         phone: representative.phone,
       },
+    }).then((res) => {
+      alert("Papelería actualizada");
     });
   };
 
