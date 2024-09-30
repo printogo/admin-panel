@@ -69,6 +69,7 @@ const Orders = () => {
   };
 
   useEffect(() => {
+    setOrders([])
     getOrders(
       status.toUpperCase(),
       options.page,
@@ -83,9 +84,9 @@ const Orders = () => {
     });
   }, [options, status, search]);
 
-  useEffect(() => {
-    getAllStationerys().then(setStationerys);
-  }, [orders]);
+  // useEffect(() => {
+  //   getAllStationerys().then(setStationerys);
+  // }, [orders]);
 
   const fields = [
     "#Orden",
@@ -221,6 +222,7 @@ const Orders = () => {
                         setOrder={setSelectedOrder}
                         setModal={setModal}
                         order={order}
+                        status={order.status}
                       />
                     </td>
                   ),

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { updateStatus } from "../../api/orders";
 
-const SelectStatus = ({ order, setModal, setOrder }) => {
+const SelectStatus = ({ order, setModal, setOrder, status }) => {
   const [value, setValue] = useState(order.status || "");
 
   const onClick = async () => {
@@ -25,7 +25,7 @@ const SelectStatus = ({ order, setModal, setOrder }) => {
       >
         <option value="">Selecciona un status</option>
         <option value="ASSIGNED">Asignado</option>
-        <option value="PENDING">Pendiente</option>
+        <option value="PENDING">Imprimiendo</option>
         <option value="READYTPU">Listo para recoger</option>
         <option value="FINISHED">Finalizado</option>
       </CSelect>
