@@ -84,9 +84,9 @@ const Orders = () => {
     });
   }, [options, status, search]);
 
-  // useEffect(() => {
-  //   getAllStationerys().then(setStationerys);
-  // }, [orders]);
+  useEffect(() => {
+    getAllStationerys().then(setStationerys);
+  }, [orders]);
 
   const fields = [
     "#Orden",
