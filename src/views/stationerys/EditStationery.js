@@ -134,7 +134,7 @@ const EditStationery = () => {
           />
         </CCol>
       </CRow>      
-      <CRow>
+      {/* <CRow>
         <CCol sm={12}> 
         <CButton
             onClick={editStationery}
@@ -145,7 +145,7 @@ const EditStationery = () => {
             Guardar
           </CButton>
         </CCol>
-      </CRow>
+      </CRow> */}
     </div>
   );
 };
