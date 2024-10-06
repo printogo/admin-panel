@@ -47,13 +47,13 @@ const Login = () => {
     <div
       className="c-app c-default-layout flex-row align-items-center"
       style={{
-        backgroundColor: "#000",
+        backgroundColor: "#222222",
       }}
     >
       <CContainer color="dark">
         <CRow className="justify-content-center">
           <CCol md="8">
-            <img className="mb-5 ml-5" src="/logo.png" alt="" />
+            <img className="mb-5 ml-5" src="/om-logo-b.png" alt="" />
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>

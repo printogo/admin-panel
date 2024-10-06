@@ -24,7 +24,7 @@ export default [
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Pendientes",
+        name: "Imprimiendo",
         to: "/orders/pending",
       },
 
