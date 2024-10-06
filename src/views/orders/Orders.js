@@ -69,7 +69,7 @@ const Orders = () => {
   };
 
   useEffect(() => {
-    setOrders([])
+    setOrders([]);
     getOrders(
       status.toUpperCase(),
       options.page,
@@ -79,7 +79,7 @@ const Orders = () => {
       search.field,
       search.value
     ).then((res) => {
-      setOrders(res.orders)
+      setOrders(res.orders);
       setPages(res.count);
     });
   }, [options, status, search]);
@@ -136,14 +136,18 @@ const Orders = () => {
                   "#Orden": (order) => <td>{order.orderNumber}</td>,
                   direccion: (order) => (
                     <td>
-                      <Link to={`/stationery-address/${order.stationery.address?.id}`}>
+                      <Link
+                        to={`/stationery-address/${order.stationery.address?.id}`}
+                      >
                         {order.stationery.address.description}
                       </Link>
                     </td>
                   ),
                   papelería: (order) => (
                     <td>
-                      <Link to={`/stationery-address/${order.stationery.address.id}`}>
+                      <Link
+                        to={`/stationery-address/${order.stationery.address.id}`}
+                      >
                         {order.stationery.name}
                       </Link>
                     </td>
@@ -151,7 +155,9 @@ const Orders = () => {
                   numeroDeOrden: (order) => <td>{order.orderNumber}</td>,
                   telefono: (order) => (
                     <td>
-                      <a href={`tel:${order.user.phone}`}>{order.user.phone}</a>
+                      <a href={`tel:${order.phoneNumber}`}>
+                        {order.phoneNumber}
+                      </a>
                     </td>
                   ),
                   // costoDeEnvio: (order) => (
@@ -163,11 +169,12 @@ const Orders = () => {
                   costoTotal: (order) => (
                     <td>{currency(order.grandSubtotal).format()}</td>
                   ),
-                  fechaPedido: (order) => (
-                    <td>
-                      {moment(order.createdAt).format("DD/MM/YY, h:mm a")}
-                    </td>
-                  ),
+                  fechaPedido: (order) => {
+                    const orderDate = new Date(order.createdAt);
+                    orderDate.setHours(orderDate.getHours() - 6);
+
+                    return <td>{orderDate.toLocaleString("es-MX")}</td>;
+                  },
                   usuario: (order) => (
                     <td>
                       <Link to={`/user/${order.user.id}`}>
@@ -178,42 +185,45 @@ const Orders = () => {
                   impresiones: (order) => (
                     <td>
                       <ul key={order.id}>
-                        {order.cart.documents.length > 0 && (
+                        {order.cart.documents.length > 0 &&
                           order.cart.documents?.map((doc) => (
                             <li key={doc.id}>
                               {" "}
-                              <Link to={`/printing/${doc.id}`}>
+                              <Link
+                                to={`/printing/${doc.id}?type=${doc.printingType}`}
+                              >
                                 {doc.fileName}
                               </Link>
                             </li>
-                          ))
-                        )}
-                        {order.cart.posters.length > 0 && (
+                          ))}
+                        {order.cart.posters.length > 0 &&
                           order.cart.posters?.map((doc) => (
                             <li key={doc.id}>
                               {" "}
-                              <Link to={`/printing/${doc.id}`}>
+                              <Link
+                                to={`/printing/${doc.id}?type=${doc.printingType}`}
+                              >
                                 {doc.fileName}
                               </Link>
                             </li>
-                          ))
-                        )}
-                        {order.cart.blueprints.length > 0 && (
+                          ))}
+                        {order.cart.blueprints.length > 0 &&
                           order.cart.blueprints?.map((doc) => (
                             <li key={doc.id}>
                               {" "}
-                              <Link to={`/printing/${doc.id}`}>
+                              <Link
+                                to={`/printing/${doc.id}?type=${doc.printingType}`}
+                              >
                                 {doc.fileName}
                               </Link>
                             </li>
-                          ))
-                        )}
+                          ))}
                       </ul>
-                      <Link to={`/printings/${order.id}`}>
+                      {/* <Link to={`/printings/${order.id}`}>
                         <CButton className="ml-5" color="success">
                           Ver todos
                         </CButton>
-                      </Link>
+                      </Link> */}
                     </td>
                   ),
                   status: (order) => (

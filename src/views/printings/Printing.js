@@ -8,41 +8,56 @@ import {
   CRow,
 } from "@coreui/react";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import currency from "currency.js";
-import { getPrinting } from "src/api/printings";
+import {
+  getBlueprint,
+  getDocument,
+  getPlot,
+  getPrinting,
+} from "src/api/printings";
 import getRanges from "src/helpers/get-ranges";
 
 const Printing = () => {
   const [printing, setPrinting] = useState({});
   const { id } = useParams();
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  const docType = searchParams.get("type");
 
   const {
     type,
     fileName,
-    paperType,
     paperSize,
     blackPages,
-    numBlackPages,
     colorPages,
-    numColorPages,
     fileUrl,
     customWidth,
     customHeight,
-    customScale,
     copies,
-    folder,
-    crimp,
+    crimpOption,
     doubleSided,
-    price,
-    additionalInfo
+    additionalInfo,
+    numFolders,
+    laminateOption,
+    paperDimension,
+    customScale,
+    totalWidth,
+    totalHeight,
+    numberOfPages,
   } = printing;
 
   useEffect(() => {
     if (id) {
-      getPrinting(id).then(setPrinting);
+      if (docType === "DOCUMENTO") {
+        getDocument(id, docType).then(setPrinting);
+      } else if (docType === "PLANO") {
+        getBlueprint(id).then(setPrinting);
+      } else if (docType === "POSTER") {
+        getPlot(id).then(setPrinting);
+      }
     }
-  }, [id]);
+  }, [id, docType]);
 
   const getBadge = (type) => {
     switch (type) {
@@ -81,42 +96,41 @@ const Printing = () => {
                 </p>
                 <p>
                   <span className="font-weight-bold">Tipo de papel:</span>{" "}
-                  {paperType}
+                  {paperSize && paperSize[0].paperType}
+                  {paperDimension && paperDimension.paperType}
                 </p>
                 <p>
-                  <span className="font-weight-bold">Tamaño:</span> {paperSize}
+                  <span className="font-weight-bold">Tamaño:</span>{" "}
+                  {paperSize && paperSize[0].paperSheetType}
+                  {totalWidth && `Alto: ${totalHeight} Largo: ${totalWidth}`}
                 </p>
-                {paperSize === "Personalizado" && (
-                  <>
-                    <p>
-                      <span className="font-weight-bold">Ancho:</span>{" "}
-                      {customWidth}
-                    </p>
-                    <p>
-                      <span className="font-weight-bold">Largo:</span>{" "}
-                      {customHeight}
-                    </p>
-                    <p>
-                      <span className="font-weight-bold">Escala:</span>{" "}
-                      {customScale}
-                    </p>
-                  </>
+
+                {numberOfPages && (
+                  <p>
+                    <span className="font-weight-bold"># hojas:</span>{" "}
+                    {numberOfPages}
+                  </p>
                 )}
-                <p>
-                  <span className="font-weight-bold"># hojas b/n:</span>{" "}
-                  {numBlackPages}
-                </p>
-                <p>
-                  <span className="font-weight-bold"># hojas a color:</span>{" "}
-                  {numColorPages}
-                </p>
-                {blackPages.length > 0 && (
+
+                {blackPages && (
+                  <p>
+                    <span className="font-weight-bold"># hojas b/n:</span>{" "}
+                    {blackPages?.length}
+                  </p>
+                )}
+                {colorPages && (
+                  <p>
+                    <span className="font-weight-bold"># hojas a color:</span>{" "}
+                    {colorPages?.length}
+                  </p>
+                )}
+                {blackPages && blackPages.length > 0 && (
                   <p>
                     <span className="font-weight-bold">Hojas b/n:</span>{" "}
                     {getRanges(blackPages).map((r) => r + " ")}
                   </p>
                 )}
-                {colorPages.length > 0 && (
+                {colorPages && colorPages.length > 0 && (
                   <p>
                     <span className="font-weight-bold">Hojas color:</span>
                     {getRanges(colorPages).map((r) => r + " ")}
@@ -131,24 +145,33 @@ const Printing = () => {
                     {doubleSided ? "Sí" : "No"}
                   </CBadge>
                 </p>
+                {crimpOption && (
+                  <p>
+                    <span className="font-weight-bold">Engargolar:</span>{" "}
+                    {crimpOption.crimpType}
+                  </p>
+                )}
+                {laminateOption && (
+                  <p>
+                    <span className="font-weight-bold">Enmicado:</span>{" "}
+                    {laminateOption.laminateType ? "Sí" : "No"}
+                  </p>
+                )}
+                {customScale && (
+                  <p>
+                    <span className="font-weight-bold">Escala:</span>{" "}
+                    {customScale}
+                  </p>
+                )}
+
                 <p>
-                  <span className="font-weight-bold">Engargolar:</span>{" "}
-                  <CBadge color={crimp ? "success" : "danger"}>
-                    {crimp ? "Sí" : "No"}
-                  </CBadge>
+                  <span className="font-weight-bold">Folder:</span> {numFolders}
                 </p>
                 <p>
-                  <span className="font-weight-bold">Folder:</span>{" "}
-                  <CBadge color={folder ? "success" : "danger"}>
-                    {folder ? "Sí" : "No"}
-                  </CBadge>
-                </p>
-                <p>
-                  <span className="font-weight-bold">Información Adicional:</span> {additionalInfo}
-                </p>
-                <p>
-                  <span className="font-weight-bold">Precio:</span>{" "}
-                  <CBadge color="success">{currency(price).format()}</CBadge>
+                  <span className="font-weight-bold">
+                    Información Adicional:
+                  </span>{" "}
+                  {additionalInfo}
                 </p>
                 <a href={fileUrl} target="blank" download>
                   <CButton block color="primary">
