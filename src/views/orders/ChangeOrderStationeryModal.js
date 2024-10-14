@@ -32,7 +32,7 @@ const ChangeOrderStationeryModal = ({ modal, setModal }) => {
   return (
     <>
       <CButton onClick={toggle} className="mr-1">
-        Launch demo modal
+        {/* Launch demo modal */}
       </CButton>
       <CModal show={modal} onClose={toggle}>
         <CModalHeader closeButton>Modificar papelería</CModalHeader>

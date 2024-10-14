@@ -25,7 +25,7 @@ const SelectModal = ({
   return (
     <>
       <CButton onClick={toggle} className="mr-1">
-        Launch demo modal
+        {/* Launch demo modal */}
       </CButton>
       <CModal show={modal} onClose={toggle}>
         <CModalHeader closeButton>{title}</CModalHeader>
@@ -42,9 +42,9 @@ const SelectModal = ({
         </CModalBody>
         <CModalFooter>
           <CButton color="primary" onClick={() => {
-              onClick();
-              toggle();
-            }}>
+            onClick();
+            toggle();
+          }}>
             {saveText}
           </CButton>{" "}
           <CButton color="secondary" onClick={toggle}>

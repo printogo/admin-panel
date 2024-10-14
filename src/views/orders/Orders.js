@@ -7,7 +7,6 @@ import {
   CDataTable,
   CFormGroup,
   CInput,
-  CPagination,
   CRow,
 } from "@coreui/react";
 import { Link, useParams } from "react-router-dom";
@@ -16,7 +15,7 @@ import React, { useEffect, useState } from "react";
 import SelectStatus from "./SelectStatus";
 import currency from "currency.js";
 import { changeStationeryOrder, getOrders } from "src/api/orders";
-import moment from "moment";
+// import moment from "moment";
 import SelectModal from "./SelectModal";
 import { getAllStationerys } from "src/api/stationerys";
 import { toast } from "react-toastify";
@@ -32,6 +31,8 @@ const Orders = () => {
   });
 
   const [pages, setPages] = useState(0);
+
+  const [currPage, setCurrPage] = useState(1);
 
   const [search, setSearch] = useState({
     field: "orderNumber",
@@ -72,17 +73,17 @@ const Orders = () => {
     setOrders([]);
     getOrders(
       status.toUpperCase(),
-      options.page,
-      options.sort,
-      options.sortOrder,
-      options.quantity,
+      1,
+      "createdAt",
+      "ASC",
+      1000,
       search.field,
       search.value
     ).then((res) => {
       setOrders(res.orders);
       setPages(res.count);
     });
-  }, [options, status, search]);
+  }, [status, search]);
 
   useEffect(() => {
     getAllStationerys().then(setStationerys);
@@ -94,13 +95,32 @@ const Orders = () => {
     "papelería",
     "telefono",
     "usuario",
-    // "costoDeEnvio",
-    // "costoPapeleria",
     "costoTotal",
     "fechaPedido",
-    "impresiones",
+    // "impresiones",
     "status",
   ];
+
+  // const handleFetchData = () => {
+  //   getOrders(
+  //     status.toUpperCase(),
+  //     currPage,
+  //     options.sort,
+  //     options.sortOrder,
+  //     options.quantity,
+  //     search.field,
+  //     search.value
+  //   ).then((res) => {
+  //     setOrders(res.orders);
+  //     setPages(res.count);
+  //   });
+
+  // }
+
+  // useEffect(() => {
+  //   handleFetchData();
+  //   //eslint-disable-next-line
+  // }, [currPage]);
 
   return (
     <>
@@ -160,12 +180,6 @@ const Orders = () => {
                       </a>
                     </td>
                   ),
-                  // costoDeEnvio: (order) => (
-                  //   <td>{currency(order.shppingCost).format()}</td>
-                  // ),
-                  // costoPapeleria: (order) => (
-                  //   <td>{currency(order.stationeryCost).format()}</td>
-                  // ),
                   costoTotal: (order) => (
                     <td>{currency(order.grandSubtotal).format()}</td>
                   ),
