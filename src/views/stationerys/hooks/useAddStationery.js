@@ -27,6 +27,7 @@ export const useAddStationery = () => {
     name: "",
     phone: "",
     phone2: "",
+    sapState: "",
   });
 
   const [representative, _setRepresentative] = useState({
@@ -97,6 +98,7 @@ export const useAddStationery = () => {
         name: stationery.name,
         phone: stationery.phone,
         phone2: stationery.phone2,
+        sapState: stationery.sapState,
         admin: {
           firstName: representative.firstName,
           lastName: representative.lastName,

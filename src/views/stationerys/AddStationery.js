@@ -1,4 +1,4 @@
-import { CButton, CCol, CRow } from "@coreui/react";
+import { CButton, CCol, CRow, CSelect } from "@coreui/react";
 import {
   faAt,
   // faBuilding,
@@ -37,6 +37,137 @@ const AddStationery = () => {
     addStationery
   } = useAddStationery();
 
+  const states = [
+    {
+      label: "Aguascalientes",
+      value: "AGU",
+    },
+    {
+      label: "Baja California",
+      value: "BCN",
+    },
+    {
+      label: "Baja California Sur",
+      value: "BCS",
+    },
+    {
+      label: "Campeche",
+      value: "CAM",
+    },
+    {
+      label: "Chiapas",
+      value: "CHP",
+    },
+    {
+      label: "Chihuahua",
+      value: "CHH",
+    },
+    {
+      label: "Ciudad de México",
+      value: "CMX",
+    },
+    {
+      label: "Coahuila",
+      value: "COA",
+    },
+    {
+      label: "Colima",
+      value: "COL",
+    },
+    {
+      label: "Durango",
+      value: "DUR",
+    },
+    {
+      label: "Guanajuato",
+      value: "GUA",
+    },
+    {
+      label: "Guerrero",
+      value: "GRO",
+    },
+    {
+      label: "Hidalgo",
+      value: "HID",
+    },
+    {
+      label: "Jalisco",
+      value: "JAL",
+    },
+    {
+      label: "Estado de México",
+      value: "MEX",
+    },
+    {
+      label: "Michoacán",
+      value: "MIC",
+    },
+    {
+      label: "Morelos",
+      value: "MOR",
+    },
+    {
+      label: "Nayarit",
+      value: "NAY",
+    },
+    {
+      label: "Nuevo León",
+      value: "NLE",
+    },
+    {
+      label: "Oaxaca",
+      value: "OAX",
+    },
+    {
+      label: "Puebla",
+      value: "PUE",
+    },
+    {
+      label: "Querétaro",
+      value: "QUE",
+    },
+    {
+      label: "Quintana Roo",
+      value: "ROO",
+    },
+    {
+      label: "San Luis Potosí",
+      value: "SLP",
+    },
+    {
+      label: "Sinaloa",
+      value: "SIN",
+    },
+    {
+      label: "Sonora",
+      value: "SON",
+    },
+    {
+      label: "Tabasco",
+      value: "TAB",
+    },
+    {
+      label: "Tamaulipas",
+      value: "TAM",
+    },
+    {
+      label: "Tlaxcala",
+      value: "TLA",
+    },
+    {
+      label: "Veracruz",
+      value: "VER",
+    },
+    {
+      label: "Yucatán",
+      value: "YUC",
+    },
+    {
+      label: "Zacatecas",
+      value: "ZAC",
+    },
+  ];
+
   return (
     <div>
       <h1>Agregar papelería</h1>
@@ -52,6 +183,24 @@ const AddStationery = () => {
             onChange={(e) => setStationery("name", e)}
           />
           <GoogleMapAutocomplete address={address} setAddress={setAddress} />
+          <h4>Estado SAP</h4>
+          <CSelect
+            className="p-2 my-2"
+            value={stationery.sapState}
+            onChange={(e) => {
+              if (!e.target?.value) {
+                return;
+              }
+              setStationery("sapState", e);
+            }}
+          >
+            <option value="">Selecciona un estado</option>
+            {states.map((state) => (
+              <option key={state.value} value={state.value}>
+                {state.label}
+              </option>
+            ))}
+          </CSelect>
           <InputIcon
             icon={faPhone}
             type="tel"
